@@ -1,0 +1,40 @@
+{
+  "name": "LinkHelper",
+  "author": "Esu Wiki",
+  "url": "https://github.com/esuweiki/MW-LinkHelper",
+  "descriptionmsg": "linkhelper-desc",
+  "version": "1.0",
+  "license-name": "BSD-2-Clause",
+  "type": "specialpage",
+  "ExtensionMessagesFiles": {
+    "LinkHelperAlias": "LinkHelper.alias.php"
+  },
+  "MessagesDirs": {
+    "LinkHelper": [
+      "i18n"
+    ]
+  },
+  "AutoloadClasses": {
+    "LinkHelper\\Hooks": "includes/Hooks.php",
+    "LinkHelper\\Helper": "includes/Helper.php",
+    "LinkHelper\\SpecialExternalLink": "special/SpecialExternalLink.php"
+  },
+  "Hooks": {
+    "LinkerMakeExternalLink": [
+      "LinkHelper\\Hooks::onLinkerMakeExternalLink"
+    ],
+    "HtmlPageLinkRendererEnd": [
+      "LinkHelper\\Hooks::onHtmlPageLinkRendererEnd"
+    ]
+  },
+  "SpecialPages": {
+    "ExternalLink": "LinkHelper\\SpecialExternalLink"
+  },
+  "config": {
+    "LinkHelperInterwikiWhitelist": {
+      "value": [],
+      "description": "The whitelist for interwiki to make interwiki links not be armored."
+    }
+  },
+  "manifest_version": 2
+}
